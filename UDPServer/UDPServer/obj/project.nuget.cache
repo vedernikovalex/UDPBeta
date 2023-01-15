@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "0vLAflIgBjbrCHF8oKccHPkqgJDzkLBTR3tIUt3UKeIfV148+b6pLPhE3vHTJ4Qx2lYQcYPkVP3SnmtoQ68qrA==",
+  "dgSpecHash": "Pq8hhJanwET1WjVif/1d3mjOR7L3cBt/O88xMS584RnN0WizgRr4tjd2MMlhy6f0oGO6FiJh7GjzwrhhgYuxTQ==",
   "success": true,
   "projectFilePath": "/Users/vedernikovalex/Documents/Git/C#/UDP/UDPServer/UDPServer/UDPServer.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/vedernikovalex/.nuget/packages/microsoft.win32.systemevents/7.0.0/microsoft.win32.systemevents.7.0.0.nupkg.sha512",
+    "/Users/vedernikovalex/.nuget/packages/system.configuration.configurationmanager/7.0.0/system.configuration.configurationmanager.7.0.0.nupkg.sha512",
+    "/Users/vedernikovalex/.nuget/packages/system.drawing.common/7.0.0/system.drawing.common.7.0.0.nupkg.sha512",
+    "/Users/vedernikovalex/.nuget/packages/system.security.cryptography.protecteddata/7.0.0/system.security.cryptography.protecteddata.7.0.0.nupkg.sha512",
+    "/Users/vedernikovalex/.nuget/packages/system.security.permissions/7.0.0/system.security.permissions.7.0.0.nupkg.sha512",
+    "/Users/vedernikovalex/.nuget/packages/system.windows.extensions/7.0.0/system.windows.extensions.7.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

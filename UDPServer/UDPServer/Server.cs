@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using SlidingWindow;
+using System.Configuration;
 
 namespace UDPServer
 {
@@ -12,6 +13,7 @@ namespace UDPServer
         private IPEndPoint client;
         private bool connected = false;
         private UdpReceiveResult result;
+        //private int port = Int32.Parse(ConfigurationManager.AppSettings.Get("port"));
         private int port = 7777;
         private byte[] dataReceived;
         private int count;
@@ -71,25 +73,6 @@ namespace UDPServer
         int packetSize = 2;
         byte[] windowReceived;
 
-        public async void WindowReceive()
-        {
-            while (true)
-            {
-                try
-                {
-                    int currentStep = 0;
-                    Console.WriteLine("invoke methd");
-                    UdpReceiveResult result = await udpServer.ReceiveAsync();
-                    byte[] dataReceived = result.Buffer;
-
-                    Console.WriteLine("2222222");
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e.ToString());
-                }
-            }
-        }
     }
 }
 

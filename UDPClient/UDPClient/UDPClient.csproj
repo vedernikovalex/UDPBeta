@@ -19,4 +19,9 @@
       <HintPath>..\..\SlidingWindow\SlidingWindow\bin\Debug\net6.0\SlidingWindow.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\app.config">
+      <Link>app.config</Link>
+    </None>
+  </ItemGroup>
 </Project>

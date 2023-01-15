@@ -12,10 +12,10 @@ public class UdpServer
         Server server = new Server();
         // Create a new thread for the server to listen for clients.
         Thread thread = new Thread(() => server.ReceiveFromClients());
-        thread.Start();
+        //thread.Start();
 
-        Thread threadWindowReceive = new Thread(() => server.WindowReceive());
-        //threadWindowReceive.Start();
+        Thread threadWindowReceive = new Thread(() => SlidingWindow.Window.WindowReceive(server.UdpServer));
+        threadWindowReceive.Start();
         //threadWindowReceive.Join();
     }
 }

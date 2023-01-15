@@ -3,13 +3,17 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using SlidingWindow;
+using System.Configuration;
 
 namespace UDPClient
 {
     class ClientClass
     {
+        //private string ip = ConfigurationManager.AppSettings.Get("ip");
         private string ip = "127.0.0.1";
+        //private int port = Int32.Parse(ConfigurationManager.AppSettings.Get("port"));
         private int port = 7777;
+        private byte[] dataReceived;
         private bool connected = false;
         private UdpClient client;
         private IPEndPoint endPoint;

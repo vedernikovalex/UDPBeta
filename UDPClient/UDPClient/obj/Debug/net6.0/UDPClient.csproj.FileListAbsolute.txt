@@ -14,6 +14,7 @@
 /Users/vedernikovalex/Documents/Git/C#/UDPClient/UDPClient/obj/Debug/net6.0/UDPClient.genruntimeconfig.cache
 /Users/vedernikovalex/Documents/Git/C#/UDPClient/UDPClient/obj/Debug/net6.0/ref/UDPClient.dll
 /Users/vedernikovalex/Documents/Git/C#/UDP/UDPClient/UDPClient/bin/Debug/net6.0/UDPClient
+/Users/vedernikovalex/Documents/Git/C#/UDP/UDPClient/UDPClient/bin/Debug/net6.0/UDPClient.dll.config
 /Users/vedernikovalex/Documents/Git/C#/UDP/UDPClient/UDPClient/bin/Debug/net6.0/UDPClient.deps.json
 /Users/vedernikovalex/Documents/Git/C#/UDP/UDPClient/UDPClient/bin/Debug/net6.0/UDPClient.runtimeconfig.json
 /Users/vedernikovalex/Documents/Git/C#/UDP/UDPClient/UDPClient/bin/Debug/net6.0/UDPClient.dll

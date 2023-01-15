@@ -1,11 +1,12 @@
 ﻿using System.Net.Sockets;
 using System.Text;
 using System.Configuration;
+using System.Reflection;
 
 namespace SlidingWindow;
 public static class Window
 {
-    static int windowSize = int.Parse(ConfigurationManager.AppSettings["windowSize"]);
+    static int windowSize = 4;
     static int currentPos = 0;
     static int packetLen = 0;
 
@@ -13,7 +14,7 @@ public static class Window
 
     public static async void WindowSend(UdpClient client)
     {
-        string input = "PAVEL KUBAT ZMRE";
+        string input = "pavel PAVEL mam rad PAVLA pavel pavel";
             //await Task.Run(() => Console.ReadLine());
         byte[] windowSend = Encoding.UTF8.GetBytes(input);
         //while (currentPos <= windowSend.Length)
@@ -48,10 +49,37 @@ public static class Window
         //}
     }
 
+    public static async void WindowReceive(UdpClient client)
+    {
+        while (true)
+        {
+            try
+            {
+                int currentStep = 0;
+                Console.WriteLine("invoke methd");
+                UdpReceiveResult result = await client.ReceiveAsync();
+                byte[] dataReceived = result.Buffer;
+
+                Console.WriteLine("2222222");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+        }
+    }
+
+
+    public static async void WindowMove()
+    {
+        
+    }
+
 }
 
 public enum PackageType
 {
+    Config,
     Message,
     Login,
     Logout,

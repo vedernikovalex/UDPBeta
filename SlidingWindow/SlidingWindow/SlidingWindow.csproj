@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <None Remove="System.Configuration.ConfigurationManager" />
+    <None Remove="app.config" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.0" />

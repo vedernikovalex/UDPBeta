@@ -9,10 +9,19 @@
 
   <ItemGroup>
     <None Remove="SlidingWindow" />
+    <None Remove="System.Configuration.ConfigurationManager" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="SlidingWindow">
       <HintPath>..\..\SlidingWindow\SlidingWindow\bin\Debug\net6.0\SlidingWindow.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\app.config">
+      <Link>app.config</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="7.0.0" />
   </ItemGroup>
 </Project>
