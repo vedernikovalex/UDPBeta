@@ -1,0 +1,26 @@
+﻿<Properties StartupConfiguration="{B4089246-64BD-418C-9D70-631B52685CA6}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="UDPServer/Server.cs">
+    <Files>
+      <File FileName="UDPServer/Program.cs" />
+      <File FileName="UDPServer/Server.cs" Line="50" Column="10" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="UDPServer" expanded="True">
+            <Node name="UDPServer" expanded="True">
+              <Node name="Server.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.UDPServer PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+</Properties>
