@@ -39,14 +39,12 @@ namespace UDPServer
 
         public void ReceiveFromClients()
         {
-            // Create a new UdpClient object on the local IP address and port number.
-
             while (true)
             {
-                // Receive data from any client.
+                //not async, any client
                 dataReceived = udpServer.Receive(ref client);
                 Console.WriteLine("Data received: " + Encoding.UTF8.GetString(dataReceived));
-                // Start a new thread to handle the client's request.
+
                 Thread threadDataHandle = new Thread(new ParameterizedThreadStart(HandleData));
                 threadDataHandle.Start(client);
             }
@@ -55,9 +53,7 @@ namespace UDPServer
         private void HandleData(object client)
         {
             count += 1;
-            // Convert the client object to an IPEndPoint.
             IPEndPoint clientEndPoint = (IPEndPoint)client;
-            // Send a message back to the client.
 
             byte[] dataToSend = Encoding.UTF8.GetBytes(count.ToString());
             udpServer.Send(dataToSend, dataToSend.Length, clientEndPoint);

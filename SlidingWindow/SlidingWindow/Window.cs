@@ -12,41 +12,48 @@ public static class Window
 
     static int packagePartLenght = 2;
 
+    static async Task<string> WaitForInputAsync()
+    {
+        string input = await Task.Run(() => Console.ReadLine());
+        return await Task.FromResult(input);
+    }
+
     public static async void WindowSend(UdpClient client)
     {
-        string input = "pavel PAVEL mam rad PAVLA pavel pavel";
+        string input = await WaitForInputAsync().Wait();
             //await Task.Run(() => Console.ReadLine());
         byte[] windowSend = Encoding.UTF8.GetBytes(input);
-        //while (currentPos <= windowSend.Length)
-        //{
-        int currentByteLen = 0;
-        for (int i = currentPos; i < windowSize; i++)
+        while (currentPos <= windowSend.Length)
         {
-            int intervalLength = (currentByteLen + packagePartLenght) - (currentByteLen);
-            byte[] interval = new byte[intervalLength];
+            int currentByteLen = 0;
+            for (int i = currentPos; i < windowSize; i++)
+            {
+                int intervalLength = (currentByteLen + packagePartLenght) - (currentByteLen);
+                byte[] interval = new byte[intervalLength];
 
-            Array.Copy(windowSend, currentByteLen, interval, 0, intervalLength);
-            Console.WriteLine(Encoding.UTF8.GetString(interval));
+                Array.Copy(windowSend, currentByteLen, interval, 0, intervalLength);
+                Console.WriteLine(Encoding.UTF8.GetString(interval));
 
-            try
-            {
-                await client.SendAsync(interval, interval.Length);
-                currentByteLen += packagePartLenght;
+                try
+                {
+                    await client.SendAsync(interval, interval.Length);
+                    currentByteLen += packagePartLenght;
+                }
+                catch (SocketException e)
+                {
+                    Console.WriteLine(e.ToString());
+                    client.Close();
+                    break;
+                }
+                catch (ObjectDisposedException e)
+                {
+                    Console.WriteLine(e.ToString());
+                    client.Close();
+                    break;
+                }
             }
-            catch (SocketException e)
-            {
-                Console.WriteLine(e.ToString());
-                client.Close();
-                break;
-            }
-            catch (ObjectDisposedException e)
-            {
-                Console.WriteLine(e.ToString());
-                client.Close();
-                break;
-            }
+            Thread.Sleep(1000);
         }
-        //}
     }
 
     public static async void WindowReceive(UdpClient client)
