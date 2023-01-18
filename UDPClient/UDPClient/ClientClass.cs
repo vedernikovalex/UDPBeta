@@ -103,6 +103,70 @@ namespace UDPClient
         {
             connected = connected ? false : true;
         }
+
+
+        /// <summary>
+        /// ////////////////
+        /// </summary>
+        ///
+
+        int windowSize = 4;
+        int currentPos = 0;
+        int packetSize = 2;
+        byte[] windowReceived;
+        int packagePartLenght = 2;
+
+        public void WindowSend(UdpClient client)
+        {
+            string input;
+            while (true)
+            {
+                input = Console.ReadLine();
+                if (!string.IsNullOrWhiteSpace(input))
+                {
+                    break;
+                }
+                Console.WriteLine("Cannot be null or blank");
+            }
+            byte[] windowSend = Encoding.UTF8.GetBytes("2"+input);
+            Thread.Sleep(1000);
+            while (currentPos <= windowSend.Length)
+            {
+                Thread.Sleep(1000);
+                int currentByteLen = 0;
+                for (int i = currentPos; i < windowSize; i++)
+                {
+                    int intervalLength = (currentByteLen + packagePartLenght) - (currentByteLen);
+                    byte[] interval = new byte[intervalLength];
+
+                    Array.Copy(windowSend, currentByteLen, interval, 0, intervalLength);
+                    Console.WriteLine(Encoding.UTF8.GetString(interval));
+
+                    try
+                    {
+                        client.Send(interval, interval.Length);
+                        currentByteLen += packagePartLenght;
+                    }
+                    catch (SocketException e)
+                    {
+                        Console.WriteLine(e.ToString());
+                        client.Close();
+                        break;
+                    }
+                    catch (ObjectDisposedException e)
+                    {
+                        Console.WriteLine(e.ToString());
+                        client.Close();
+                        break;
+                    }
+                }
+                Thread.Sleep(1000);
+            }
+        }
+
+
+        //make a receiver to accept byte[] of size 2 as [number of byte, byte intself]s
+
     }
 }
 

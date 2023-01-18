@@ -17,16 +17,19 @@ class Program
         //Thread receiveWindowThread = new Thread(clientCurrent.WindowReceive);
         //Thread windowMoveThread = new Thread(clientCurrent.WindowMove);
 
+        Thread clientSend = new Thread(() => clientCurrent.WindowSend(clientCurrent.Client));
+
         clientCurrent.Connect();
 
         if (clientCurrent.Connected)
         {
-            sendWindowThread.Start();
+            //sendWindowThread.Start();
             //receiveWindowThread.Start();
             //windowMoveThread.Start();
 
             //sendThread.Start();
             //receiveThread.Start();
+            clientSend.Start();
         }
 
     }

@@ -1,14 +1,18 @@
 ﻿<Properties>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workbench ActiveDocument="SlidingWindow/Window.cs">
     <Files>
-      <File FileName="SlidingWindow/Window.cs" Line="23" Column="29" />
-      <File FileName="app.config" Line="7" Column="1" />
+      <File FileName="SlidingWindow/Window.cs" Line="13" Column="12" />
+      <File FileName="app.config" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="SlidingWindow" expanded="True">
-            <Node name="Solution Items" expanded="True" />
             <Node name="SlidingWindow" expanded="True">
               <Node name="Window.cs" selected="True" />
             </Node>
@@ -17,10 +21,5 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>

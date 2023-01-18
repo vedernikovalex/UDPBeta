@@ -11,11 +11,19 @@ public class UdpServer
     {
         Server server = new Server();
         // Create a new thread for the server to listen for clients.
-        Thread thread = new Thread(() => server.ReceiveFromClients());
-        thread.Start();
+        Thread threadReceive = new Thread(() => server.Receive());
+        threadReceive.Start();
 
-        Thread threadWindowReceive = new Thread(() => SlidingWindow.Window.WindowReceive(server.UdpServer));
+        //Thread threadWindowReceive = new Thread(() => SlidingWindow.Window.WindowReceive(server.UdpServer));
+        //Thread threadWindowSend = new Thread(() => SlidingWindow.Window.WindowSend(server.UdpServer));
+
+        //Thread threadWindowReceive = new Thread(() => server.WindowReceive(server.UdpServer));
+        //Thread threadWindowSend = new Thread(() => server.WindowSend(server.UdpServer));
+
+
+        //threadWindowSend.Start();
         //threadWindowReceive.Start();
+        //server.WindowReceive(server.UdpServer);
         //threadWindowReceive.Join();
     }
 }

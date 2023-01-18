@@ -12,19 +12,15 @@ public static class Window
 
     static int packagePartLenght = 2;
 
-    static async Task<string> WaitForInputAsync()
-    {
-        string input = await Task.Run(() => Console.ReadLine());
-        return await Task.FromResult(input);
-    }
-
     public static async void WindowSend(UdpClient client)
     {
-        string input = await WaitForInputAsync().Wait();
+        string input = "string to send string string";
             //await Task.Run(() => Console.ReadLine());
         byte[] windowSend = Encoding.UTF8.GetBytes(input);
+        Thread.Sleep(3000);
         while (currentPos <= windowSend.Length)
         {
+            Thread.Sleep(1000);
             int currentByteLen = 0;
             for (int i = currentPos; i < windowSize; i++)
             {
