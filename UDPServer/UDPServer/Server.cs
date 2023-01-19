@@ -46,19 +46,19 @@ namespace UDPServer
                 {
                     dataReceived = udpServer.Receive(ref client);
                     string received = Encoding.UTF8.GetString(dataReceived);
-                    Console.WriteLine(received[0]);
-                    switch ((int)received[0])
+                    Console.WriteLine((char)(int)PackageType.Login);
+                    switch (received[0])
                     {
-                        case (int)PackageType.Login:
+                        case (char)(int)PackageType.Login:
                             User newUser = new User(client);
                             Console.WriteLine("Logged a user: " + client);
                             users.Add(newUser);
                             break;
-                        case (int)PackageType.Message:
+                        case (char)(int)PackageType.Message:
                             Thread threadDataHandle = new Thread(new ParameterizedThreadStart(HandleWindow));
                             threadDataHandle.Start(client);
                             break;
-                        case (int)PackageType.Logout:
+                        case (char)(int)PackageType.Logout:
                             for (int i = 0; i < users.Count; i++)
                             {
                                 users[i].GetUserByClient(client);
@@ -103,6 +103,7 @@ namespace UDPServer
         private void HandleWindow(object client)
         {
             IPEndPoint clientEndPoint = (IPEndPoint)client;
+
 
         }
 

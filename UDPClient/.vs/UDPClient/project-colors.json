@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "759e2d45-9a6f-4a7c-aeb4-2a92903a3b6c": {
+      "ProjectGuid": "759e2d45-9a6f-4a7c-aeb4-2a92903a3b6c",
+      "DisplayName": "UDPClient",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

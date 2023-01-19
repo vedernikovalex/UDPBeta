@@ -29,7 +29,7 @@ class Program
 
             //sendThread.Start();
             //receiveThread.Start();
-            clientSend.Start();
+            //clientSend.Start();
         }
 
     }

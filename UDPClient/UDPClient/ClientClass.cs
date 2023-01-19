@@ -7,24 +7,34 @@ using System.Configuration;
 
 namespace UDPClient
 {
-    class ClientClass
+    public class ClientClass
     {
-        //private string ip = ConfigurationManager.AppSettings.Get("ip");
-        private string ip = "127.0.0.1";
-        //private int port = Int32.Parse(ConfigurationManager.AppSettings.Get("port"));
-        private int port = 7777;
+        private string ip;
+        private int port;
+
         private byte[] dataReceived;
+
         private bool connected = false;
+
         private UdpClient client;
         private IPEndPoint endPoint;
+
         private UdpReceiveResult result;
+
+
         private byte[] data = new byte[1024];
         private string input, receivedData;
 
         public ClientClass()
         {
-            endPoint = new IPEndPoint(IPAddress.Parse(ip), port);
-            client = new UdpClient();
+            try
+            {
+                ConfigureConnection();
+            }
+            catch (ConfigurationException ex)
+            {
+                Console.WriteLine("!! Error occured in configuration !!");
+            }
         }
 
         public bool Connected
@@ -40,25 +50,78 @@ namespace UDPClient
         public void ConfigureConnection()
         {
             Console.WriteLine("!! Configurate your connection !!");
-            Console.WriteLine("!! Get IP Address/PORT from configuration file or assign it manualy? !!");
+            Console.WriteLine("!! Get IP Address/PORT of server from configuration file or assign it manualy? !!");
             Console.WriteLine("!! Write \"config/manual\" !!");
             input = String.Empty;
             while (true)
             {
+                Console.WriteLine(" ");
+                Console.Write(">> ");
                 input = Console.ReadLine().ToLower();
                 if (input == "config")
                 {
-                    ip = ConfigurationManager.AppSettings.Get("ip");
-                    port = Int32.Parse(ConfigurationManager.AppSettings.Get("port"));
+                    try
+                    {
+                        ip = ConfigurationManager.AppSettings.Get("ip");
+                    }
+                    catch (FormatException e){
+                        Console.WriteLine("!! Key \"IP\" was not found or incorrectly inputed !!");
+                    }
+                    try
+                    {
+                        port = Int32.Parse(ConfigurationManager.AppSettings.Get("port"));
+                    }catch (FormatException e)
+                    {
+                        Console.WriteLine("!! Key \"PORT\" was not found or incorrectly inputed !!");
+                    }
                     break;
                 }
                 else if (input == "manual")
-                {    
+                {
+                    string inputIp = String.Empty;
+                    Console.WriteLine("!! IP Address !!");
+                    while (true)
+                    {
+                        Console.WriteLine(" ");
+                        Console.Write(">> ");
+                        inputIp = Console.ReadLine();
+                        if (IPAddress.TryParse(inputIp, out IPAddress valid) && !String.IsNullOrEmpty(inputIp))
+                        {
+                            ip = inputIp;
+                            break;
+                        }
+                        Console.WriteLine("!! Please provide a valid IP Address !!");
+                    }
+                    int portInput = 0;
+                    Console.WriteLine("!! Port !!");
+                    while (true)
+                    {
+                        Console.WriteLine(" ");
+                        Console.Write(">> ");
+                        portInput = Int32.Parse(Console.ReadLine());
+                        if (portInput >= 1 && portInput <= 65535)
+                        {
+                            port = portInput;
+                            break;
+                        }
+                        Console.WriteLine("!! Please provide a valid PORT !!");
+                    }
                     break;
                 }
-                Console.WriteLine("!! Please write config OR manual !!");
+                Console.WriteLine("!! Please write \"config\" OR \"manual\" !!");
             }
-
+            if (port != 0 && !String.IsNullOrEmpty(ip))
+            {
+                endPoint = new IPEndPoint(IPAddress.Parse(ip), port);
+                client = new UdpClient();
+                Console.WriteLine("!! Configuration was successful !!");
+                Console.WriteLine("!! Server config: " + endPoint);
+            }
+            else
+            {
+                Console.WriteLine("!! Configuration wasn't successful !!");
+                throw new ConfigurationException();
+            }
         }
 
         public void Connect()

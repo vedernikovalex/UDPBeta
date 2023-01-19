@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "b4089246-64bd-418c-9d70-631b52685ca6": {
+      "ProjectGuid": "b4089246-64bd-418c-9d70-631b52685ca6",
+      "DisplayName": "UDPServer",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
