@@ -37,6 +37,30 @@ namespace UDPClient
             get { return client; }
         }
 
+        public void ConfigureConnection()
+        {
+            Console.WriteLine("!! Configurate your connection !!");
+            Console.WriteLine("!! Get IP Address/PORT from configuration file or assign it manualy? !!");
+            Console.WriteLine("!! Write \"config/manual\" !!");
+            input = String.Empty;
+            while (true)
+            {
+                input = Console.ReadLine().ToLower();
+                if (input == "config")
+                {
+                    ip = ConfigurationManager.AppSettings.Get("ip");
+                    port = Int32.Parse(ConfigurationManager.AppSettings.Get("port"));
+                    break;
+                }
+                else if (input == "manual")
+                {    
+                    break;
+                }
+                Console.WriteLine("!! Please write config OR manual !!");
+            }
+
+        }
+
         public void Connect()
         {
             try
