@@ -6,33 +6,14 @@ namespace UDPServer
 {
 	public class User
 	{
-        private IPEndPoint clientEndPoint;
+        private IPEndPoint clientDestination, receiverDestination;
+        private bool connected;
 
-        public User(IPEndPoint cl)
+        public User(IPEndPoint endpoint)
 		{
-            clientEndPoint = cl;
+            clientDestination = endpoint;
         }
 
-        public IPEndPoint ClientEndPoint
-        {
-            get { return clientEndPoint; }
-            set { clientEndPoint = value; }
-        }
-
-        public User GetUserByClient(IPEndPoint endPoint)
-        {
-            if (endPoint == clientEndPoint)
-            {
-                Console.WriteLine("FOUND" + this);
-                return this;
-            }
-            return null;
-        }
-
-        public override string? ToString()
-        {
-            return "User with endpoint: " + clientEndPoint.ToString();
-        }
     }
 }
 

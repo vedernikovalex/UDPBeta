@@ -9,42 +9,25 @@ namespace UDPClient
 {
     public class ClientClass
     {
-        private string ip;
-        private int port;
-
-        private byte[] dataReceived;
+        private string input, ip;
+        private int port, portClient;
 
         private bool connected = false;
 
-        private UdpClient client;
+        private UdpClient senderClient, receiverClient;
         private IPEndPoint endPoint;
 
-        private UdpReceiveResult result;
 
-
-        private byte[] data = new byte[1024];
-        private string input, receivedData;
 
         public ClientClass()
         {
-            try
-            {
-                ConfigureConnection();
-            }
-            catch (ConfigurationException ex)
-            {
-                Console.WriteLine("!! Error occured in configuration !!");
-            }
+            ConfigureConnection();
+            Connect();
         }
 
         public bool Connected
         {
             get { return connected; }
-        }
-
-        public UdpClient Client
-        {
-            get { return client; }
         }
 
         public void ConfigureConnection()
@@ -63,16 +46,12 @@ namespace UDPClient
                     try
                     {
                         ip = ConfigurationManager.AppSettings.Get("ip");
-                    }
-                    catch (FormatException e){
-                        Console.WriteLine("!! Key \"IP\" was not found or incorrectly inputed !!");
-                    }
-                    try
-                    {
                         port = Int32.Parse(ConfigurationManager.AppSettings.Get("port"));
-                    }catch (FormatException e)
+                        portClient = Int32.Parse(ConfigurationManager.AppSettings.Get("portClient"));
+                    }
+                    catch (FormatException e)
                     {
-                        Console.WriteLine("!! Key \"PORT\" was not found or incorrectly inputed !!");
+                        Console.WriteLine("!! Configuration file was not found or incorrectly formated !!");
                     }
                     break;
                 }
@@ -92,8 +71,22 @@ namespace UDPClient
                         }
                         Console.WriteLine("!! Please provide a valid IP Address !!");
                     }
+                    int portInputServer = 0;
+                    Console.WriteLine("!! Port of server !!");
+                    while (true)
+                    {
+                        Console.WriteLine(" ");
+                        Console.Write(">> ");
+                        portInputServer = Int32.Parse(Console.ReadLine());
+                        if (portInputServer >= 1 && portInputServer <= 65535)
+                        {
+                            port = portInputServer;
+                            break;
+                        }
+                        Console.WriteLine("!! Please provide a valid PORT !!");
+                    }
                     int portInput = 0;
-                    Console.WriteLine("!! Port !!");
+                    Console.WriteLine("!! Port of CLIENT !!");
                     while (true)
                     {
                         Console.WriteLine(" ");
@@ -101,7 +94,7 @@ namespace UDPClient
                         portInput = Int32.Parse(Console.ReadLine());
                         if (portInput >= 1 && portInput <= 65535)
                         {
-                            port = portInput;
+                            portClient = portInput;
                             break;
                         }
                         Console.WriteLine("!! Please provide a valid PORT !!");
@@ -113,14 +106,16 @@ namespace UDPClient
             if (port != 0 && !String.IsNullOrEmpty(ip))
             {
                 endPoint = new IPEndPoint(IPAddress.Parse(ip), port);
-                client = new UdpClient();
+                senderClient = new UdpClient(portClient);
+                receiverClient = new UdpClient(portClient + 1);
                 Console.WriteLine("!! Configuration was successful !!");
                 Console.WriteLine("!! Server config: " + endPoint);
             }
             else
             {
+                Console.WriteLine("");
                 Console.WriteLine("!! Configuration wasn't successful !!");
-                throw new ConfigurationException();
+                ConfigureConnection();
             }
         }
 
@@ -128,19 +123,43 @@ namespace UDPClient
         {
             try
             {
-                client.Connect(endPoint);
-                ClientStateSwitch();
-                Console.WriteLine("Successfully connected");
-                Console.WriteLine("Server IP address: " + ip + " with port: " + port);
+                senderClient.Connect(endPoint);
+                connected = true;
+                Console.WriteLine("!! Successfully connected !!");
+                StartInput();
             }
             catch (SocketException e)
             {
                 Console.WriteLine(e.ToString());
-                Close();
-                ClientStateSwitch();
+                Disconnet();
+            }
+            catch (NullReferenceException e)
+            {
+                Console.WriteLine(e.ToString());
+                Disconnet();
             }
         }
 
+        public void Disconnet()
+        {
+            senderClient.Close();
+            receiverClient.Close();
+            connected=false;
+        }
+
+        public void StartReceive()
+        {
+            Thread receiverWindow = new Thread(() => ReceiveNew());
+            receiverWindow.Start();
+        }
+
+        public void StartInput()
+        {
+            Thread writerWindow = new Thread(() => Message());
+            writerWindow.Start();
+        }
+
+        /*
         public void Send()
         {
             while (connected)
@@ -149,10 +168,12 @@ namespace UDPClient
                 Console.Write(">> ");
                 input = Console.ReadLine();
                 data = Encoding.UTF8.GetBytes(input);
-                client.SendAsync(data, data.Length);
+                senderClient.SendAsync(data, data.Length);
             }
         }
+        */
 
+        /*
         public async void Receive()
         {
             while (connected)
@@ -166,13 +187,13 @@ namespace UDPClient
                 {
                     Console.WriteLine(e.ToString());
                     Close();
-                    ClientStateSwitch();
+                    connected = false;
                 }
                 catch (ObjectDisposedException e)
                 {
                     Console.WriteLine(e.ToString());
                     Close();
-                    ClientStateSwitch();
+                    connected = false;
                 }
 
                 receivedData = Encoding.UTF8.GetString(data, 0, data.Length);
@@ -180,16 +201,14 @@ namespace UDPClient
                 Console.WriteLine("");
             }
         }
+        */
 
+        /*
         private void Close()
         {
             client.Close();
         }
-
-        private void ClientStateSwitch()
-        {
-            connected = connected ? false : true;
-        }
+        */
 
 
         /// <summary>
@@ -197,29 +216,24 @@ namespace UDPClient
         /// </summary>
         ///
 
+        /*
         int windowSize = 4;
         int currentPos = 0;
         int packetSize = 2;
         byte[] windowReceived;
         int packagePartLenght = 2;
+        byte[] windowSend;
 
-        public void WindowSend(UdpClient client)
+        */
+
+        /*
+        public void WindowSend(string message, IPEndPoint server)
         {
-            string input;
-            while (true)
+            byte[] messageBytes = Encoding.UTF8.GetBytes(message);
+            bool ackAllData = false;
+
+            while (!ackAllData)
             {
-                input = Console.ReadLine();
-                if (!string.IsNullOrWhiteSpace(input))
-                {
-                    break;
-                }
-                Console.WriteLine("Cannot be null or blank");
-            }
-            byte[] windowSend = Encoding.UTF8.GetBytes("2"+input);
-            Thread.Sleep(1000);
-            while (currentPos <= windowSend.Length)
-            {
-                Thread.Sleep(1000);
                 int currentByteLen = 0;
                 for (int i = currentPos; i < windowSize; i++)
                 {
@@ -250,9 +264,50 @@ namespace UDPClient
                 Thread.Sleep(1000);
             }
         }
+        */
 
+        public void ReceiveNew()
+        {
+            while (connected)
+            {
+                try
+                {
 
-        //make a receiver to accept byte[] of size 2 as [number of byte, byte intself]s
+                }
+                catch (Exception e)
+                {
+
+                }
+            }
+        }
+
+        public void Message()
+        {
+            string input;
+            while (connected)
+            {
+                input = Console.ReadLine();
+                if (!String.IsNullOrWhiteSpace(input))
+                {
+                    try
+                    {
+                        SlidingWindow.Window window = new SlidingWindow.Window(senderClient, receiverClient);
+                        window.WindowSender(input, endPoint);
+                    }
+                    catch(ArgumentNullException e)
+                    {
+                        Console.WriteLine(e.ToString());
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Cannot be null or blank");
+                }
+            }
+
+        }
+
+        //make a receiver to accept byte[] of size 2 as [number of byte, byte intself]
 
     }
 }

@@ -9,11 +9,10 @@ namespace UDPServer
 {
     public class Server
     {
-        private UdpClient udpServer;
-        private IPEndPoint client;
-        private bool connected = false;
+        private UdpClient senderClient, receiverClient;
+
+        private bool running = false;
         private UdpReceiveResult result;
-        //private int port = Int32.Parse(ConfigurationManager.AppSettings.Get("port"));
         private int port = 7777;
         private byte[] dataReceived;
 
@@ -21,23 +20,108 @@ namespace UDPServer
 
         public Server()
         {
-            udpServer = new UdpClient(new IPEndPoint(IPAddress.Any, port));
-            client = new IPEndPoint(IPAddress.Any, 0);
+            ConfigureConnection();
+            Receive();
         }
 
-        public UdpClient UdpServer
+        public void ConfigureConnection()
         {
-            get { return udpServer; }
-            set { udpServer = value; }
+            Console.WriteLine("!! Configurate your connection !!");
+            Console.WriteLine("!! Get PORT of server from configuration file or assign it manualy? !!");
+            Console.WriteLine("!! Write \"config/manual\" !!");
+            string input = String.Empty;
+            while (true)
+            {
+                Console.WriteLine(" ");
+                Console.Write(">> ");
+                input = Console.ReadLine().ToLower();
+                if (input == "config")
+                {
+                    try
+                    {
+                        port = Int32.Parse(ConfigurationManager.AppSettings.Get("port"));
+                    }
+                    catch (FormatException e)
+                    {
+                        Console.WriteLine("!! Configuration file was not found or incorrectly formated !!");
+                    }
+                    break;
+                }
+                else if (input == "manual")
+                {
+                    int portInputServer = 0;
+                    Console.WriteLine("!! Port of server !!");
+                    while (true)
+                    {
+                        Console.WriteLine(" ");
+                        Console.Write(">> ");
+                        portInputServer = Int32.Parse(Console.ReadLine());
+                        if (portInputServer >= 1 && portInputServer <= 65535)
+                        {
+                            port = portInputServer;
+                            break;
+                        }
+                        Console.WriteLine("!! Please provide a valid PORT !!");
+                    }
+                    break;
+                }
+                Console.WriteLine("!! Please write \"config\" OR \"manual\" !!");
+            }
+            if (port != 0)
+            {
+                senderClient = new UdpClient(port);
+                receiverClient = new UdpClient(port + 1);
+                running = true;
+                Console.WriteLine("");
+                Console.WriteLine("!! Configuration was successful !!");
+            }
+            else
+            {
+                Console.WriteLine("");
+                Console.WriteLine("!! Configuration wasn't successful !!");
+                ConfigureConnection();
+            }
         }
 
-        public IPEndPoint Client
+        public void Receive()
         {
-            get { return client; }
-            set { client = value; }
+            while (running)
+            {
+                SlidingWindow.Window window = new SlidingWindow.Window(senderClient, receiverClient);
+                window.WindowReceiver();
+            }
+
+        }
+
+        /*
+        public void Receive()
+        {
+            while (true)
+            {
+                try
+                {
+                    dataReceived = udpServer.Receive(ref client);
+                    string received = Encoding.UTF8.GetString(dataReceived);
+                    string position = received[0].ToString();
+                    Console.WriteLine(received);
+                    udpServer.Send(Encoding.UTF8.GetBytes(position), position.Length);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            }
+        }
+        */
+
+        public void StartReceive()
+        {
+
         }
 
         //not async, any client
+
+        /*
         public void Receive()
         {
             while (true)
@@ -68,7 +152,7 @@ namespace UDPServer
                             Console.WriteLine("Under construction!");
                             break;
                     }
-                    /*
+
                     if (received[0] == ((char)PackageType.Login))
                     {
                         User newUser = new User(client);
@@ -82,7 +166,7 @@ namespace UDPServer
 
                     }
                     Console.WriteLine("Under construction!");
-                    */
+
                 }
                 catch(Exception e)
                 {
@@ -90,6 +174,7 @@ namespace UDPServer
                 }
             }
         }
+        */
 
         //not async, any client
         private void Handle(object client)
@@ -106,13 +191,6 @@ namespace UDPServer
 
 
         }
-
-        public void ClientStateSwitch()
-        {
-            connected = connected ? false : true;
-        }
-
-
 
 
         /// <summary>
@@ -166,6 +244,7 @@ namespace UDPServer
             }
         }
 
+        /*
         bool notDone = true;
         public void WindowReceive()
         {
@@ -185,6 +264,7 @@ namespace UDPServer
                 }
             }
         }
+        */
 
 
         public static async void WindowMove()

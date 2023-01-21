@@ -61,7 +61,6 @@ D:\Git\C#\repos\UDPBeta\UDPServer\UDPServer\bin\Debug\net6.0\runtimes\win\lib\ne
 D:\Git\C#\repos\UDPBeta\UDPServer\UDPServer\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 D:\Git\C#\repos\UDPBeta\UDPServer\UDPServer\bin\Debug\net6.0\SlidingWindow.dll
 D:\Git\C#\repos\UDPBeta\UDPServer\UDPServer\bin\Debug\net6.0\SlidingWindow.pdb
-D:\Git\C#\repos\UDPBeta\UDPServer\UDPServer\obj\Debug\net6.0\UDPServer.csproj.AssemblyReference.cache
 D:\Git\C#\repos\UDPBeta\UDPServer\UDPServer\obj\Debug\net6.0\UDPServer.GeneratedMSBuildEditorConfig.editorconfig
 D:\Git\C#\repos\UDPBeta\UDPServer\UDPServer\obj\Debug\net6.0\UDPServer.AssemblyInfoInputs.cache
 D:\Git\C#\repos\UDPBeta\UDPServer\UDPServer\obj\Debug\net6.0\UDPServer.AssemblyInfo.cs
@@ -71,3 +70,4 @@ D:\Git\C#\repos\UDPBeta\UDPServer\UDPServer\obj\Debug\net6.0\UDPServer.dll
 D:\Git\C#\repos\UDPBeta\UDPServer\UDPServer\obj\Debug\net6.0\ref\UDPServer.dll
 D:\Git\C#\repos\UDPBeta\UDPServer\UDPServer\obj\Debug\net6.0\UDPServer.pdb
 D:\Git\C#\repos\UDPBeta\UDPServer\UDPServer\obj\Debug\net6.0\UDPServer.genruntimeconfig.cache
+D:\Git\C#\repos\UDPBeta\UDPServer\UDPServer\bin\Debug\net6.0\SlidingWindow.dll.config

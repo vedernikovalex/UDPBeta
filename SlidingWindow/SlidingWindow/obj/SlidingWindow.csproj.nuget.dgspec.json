@@ -1,26 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/vedernikovalex/Documents/Git/C#/UDP/SlidingWindow/SlidingWindow/SlidingWindow.csproj": {}
+    "D:\\Git\\C#\\repos\\UDPBeta\\SlidingWindow\\SlidingWindow\\SlidingWindow.csproj": {}
   },
   "projects": {
-    "/Users/vedernikovalex/Documents/Git/C#/UDP/SlidingWindow/SlidingWindow/SlidingWindow.csproj": {
+    "D:\\Git\\C#\\repos\\UDPBeta\\SlidingWindow\\SlidingWindow\\SlidingWindow.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/vedernikovalex/Documents/Git/C#/UDP/SlidingWindow/SlidingWindow/SlidingWindow.csproj",
+        "projectUniqueName": "D:\\Git\\C#\\repos\\UDPBeta\\SlidingWindow\\SlidingWindow\\SlidingWindow.csproj",
         "projectName": "SlidingWindow",
-        "projectPath": "/Users/vedernikovalex/Documents/Git/C#/UDP/SlidingWindow/SlidingWindow/SlidingWindow.csproj",
-        "packagesPath": "/Users/vedernikovalex/.nuget/packages/",
-        "outputPath": "/Users/vedernikovalex/Documents/Git/C#/UDP/SlidingWindow/SlidingWindow/obj/",
+        "projectPath": "D:\\Git\\C#\\repos\\UDPBeta\\SlidingWindow\\SlidingWindow\\SlidingWindow.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "D:\\Git\\C#\\repos\\UDPBeta\\SlidingWindow\\SlidingWindow\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/vedernikovalex/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -41,7 +42,7 @@
           "dependencies": {
             "System.Configuration.ConfigurationManager": {
               "target": "Package",
-              "version": "[6.0.0, )"
+              "version": "[7.0.0, )"
             }
           },
           "imports": [
@@ -50,8 +51,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -60,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

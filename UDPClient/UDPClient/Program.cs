@@ -3,23 +3,13 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using UDPClient;
-using SlidingWindow;
 
 class Program
 {
     public static void Main()
     {
         ClientClass clientCurrent = new ClientClass();
-        Thread receiveThread = new Thread(() => clientCurrent.Receive());
-        Thread sendThread = new Thread(() => clientCurrent.Send());
-
-        Thread sendWindowThread = new Thread(() => SlidingWindow.Window.WindowSend(clientCurrent.Client));
-        //Thread receiveWindowThread = new Thread(clientCurrent.WindowReceive);
-        //Thread windowMoveThread = new Thread(clientCurrent.WindowMove);
-
-        Thread clientSend = new Thread(() => clientCurrent.WindowSend(clientCurrent.Client));
-
-        clientCurrent.Connect();
+        
 
         if (clientCurrent.Connected)
         {

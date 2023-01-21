@@ -10,3 +10,15 @@
 /Users/vedernikovalex/Documents/Git/C#/UDP/SlidingWindow/SlidingWindow/obj/Debug/net6.0/refint/SlidingWindow.dll
 /Users/vedernikovalex/Documents/Git/C#/UDP/SlidingWindow/SlidingWindow/obj/Debug/net6.0/SlidingWindow.pdb
 /Users/vedernikovalex/Documents/Git/C#/UDP/SlidingWindow/SlidingWindow/obj/Debug/net6.0/ref/SlidingWindow.dll
+D:\Git\C#\repos\UDPBeta\SlidingWindow\SlidingWindow\bin\Debug\net6.0\SlidingWindow.dll.config
+D:\Git\C#\repos\UDPBeta\SlidingWindow\SlidingWindow\bin\Debug\net6.0\SlidingWindow.deps.json
+D:\Git\C#\repos\UDPBeta\SlidingWindow\SlidingWindow\bin\Debug\net6.0\SlidingWindow.dll
+D:\Git\C#\repos\UDPBeta\SlidingWindow\SlidingWindow\bin\Debug\net6.0\ref\SlidingWindow.dll
+D:\Git\C#\repos\UDPBeta\SlidingWindow\SlidingWindow\bin\Debug\net6.0\SlidingWindow.pdb
+D:\Git\C#\repos\UDPBeta\SlidingWindow\SlidingWindow\obj\Debug\net6.0\SlidingWindow.GeneratedMSBuildEditorConfig.editorconfig
+D:\Git\C#\repos\UDPBeta\SlidingWindow\SlidingWindow\obj\Debug\net6.0\SlidingWindow.AssemblyInfoInputs.cache
+D:\Git\C#\repos\UDPBeta\SlidingWindow\SlidingWindow\obj\Debug\net6.0\SlidingWindow.AssemblyInfo.cs
+D:\Git\C#\repos\UDPBeta\SlidingWindow\SlidingWindow\obj\Debug\net6.0\SlidingWindow.csproj.CoreCompileInputs.cache
+D:\Git\C#\repos\UDPBeta\SlidingWindow\SlidingWindow\obj\Debug\net6.0\SlidingWindow.dll
+D:\Git\C#\repos\UDPBeta\SlidingWindow\SlidingWindow\obj\Debug\net6.0\ref\SlidingWindow.dll
+D:\Git\C#\repos\UDPBeta\SlidingWindow\SlidingWindow\obj\Debug\net6.0\SlidingWindow.pdb

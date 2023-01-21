@@ -5,7 +5,22 @@
       "ProjectGuid": "759e2d45-9a6f-4a7c-aeb4-2a92903a3b6c",
       "DisplayName": "UDPClient",
       "ColorIndex": 0
+    },
+    "f3718de9-43ce-43ab-987c-1dbc30acaec7": {
+      "ProjectGuid": "f3718de9-43ce-43ab-987c-1dbc30acaec7",
+      "DisplayName": "Solution Items",
+      "ColorIndex": 1
+    },
+    "169d6ef5-e504-40a7-b100-2a5fb6517370": {
+      "ProjectGuid": "169d6ef5-e504-40a7-b100-2a5fb6517370",
+      "DisplayName": "SlidingWindow",
+      "ColorIndex": 2
+    },
+    "ad20be39-4d64-43bd-bea5-e5df220aae00": {
+      "ProjectGuid": "ad20be39-4d64-43bd-bea5-e5df220aae00",
+      "DisplayName": "UDPServer",
+      "ColorIndex": 3
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 4
 }
