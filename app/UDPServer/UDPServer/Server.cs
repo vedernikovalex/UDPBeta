@@ -89,11 +89,20 @@ namespace UDPServer
             }
             if (port != 0)
             {
-                senderClient = new UdpClient(port);
-                receiverClient = new UdpClient(port + 1);
-                running = true;
-                Console.WriteLine("");
-                Console.WriteLine("!! Configuration was successful !!");
+                try
+                {
+                    senderClient = new UdpClient(port);
+                    receiverClient = new UdpClient(port + 1);
+                    running = true;
+                    Console.WriteLine("");
+                    Console.WriteLine("!! Configuration was successful !!");
+                }
+                catch (SocketException e)
+                {
+                    Console.WriteLine(e.Message);
+                    Console.WriteLine("Port is already taken");
+                    ConfigureConnection();
+                }
             }
             else
             {
@@ -116,8 +125,17 @@ namespace UDPServer
             {
                 SlidingWindow.Window window = new SlidingWindow.Window(senderClient, receiverClient);
                 Thread receiveThread = new Thread(new ThreadStart(window.WindowReceiver));
-                receiveThread.Start();
-                receiveThread.Join();
+                try
+                {
+                    receiveThread.Start();
+                    //window.WindowReceiver();
+                    receiveThread.Join();
+                }
+                catch (ThreadStateException e)
+                {
+                    Console.WriteLine(e.Message);
+                    Console.WriteLine("!! Thread was started in invalid state, unable to start !!");
+                }
                 message = window.ReceivedMessage;
                 sender = window.SenderDestination;
             }
@@ -149,9 +167,17 @@ namespace UDPServer
 
             SlidingWindow.Window window = new SlidingWindow.Window(senderClient, receiverClient);
             Thread receiveThread = new Thread(() => window.WindowReceiver());
-            receiveThread.Start();
-            //window.WindowReceiver();
-            receiveThread.Join();
+            try
+            {
+                receiveThread.Start();
+                //window.WindowReceiver();
+                receiveThread.Join();
+            }
+            catch (ThreadStateException e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine("!! Thread was started in invalid state, unable to start !!");
+            }
             //return (message, sender);
             return (window.ReceivedMessage, window.SenderDestination);
         }
