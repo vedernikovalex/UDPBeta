@@ -48,7 +48,7 @@ namespace UDPClient
         public static string UserInput()
         {
             Console.Write(" >> ");
-            string input = Console.ReadLine().ToLower();
+            string input = Console.ReadLine().ToLower().Trim();
             return input;
         }
 
@@ -64,7 +64,7 @@ namespace UDPClient
         {
             Console.WriteLine("?? " + message + " ??");
             Console.Write(" >> ");
-            string input = Console.ReadLine().ToLower();
+            string input = Console.ReadLine().ToLower().Trim();
             return input;
         }
 

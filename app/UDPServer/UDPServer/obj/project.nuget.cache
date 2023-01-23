@@ -1,15 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "HdQsJPnJay1SqrX1htL1a6Hq1yahpxZfkeCzF4rkaua2X6q6tJJzKQrZTTbhy89XUQ3knhUwX4syDvYaXIYoOQ==",
+  "dgSpecHash": "NCLQgvdSuO7E0B9BxzecRGeDl2yrRYCAs5PRlLNy4KXA3Bx/oJTHk0A6CrjBBXm4SeWxs93fC54Lmq0073mdMQ==",
   "success": true,
-  "projectFilePath": "D:\\Git\\C#\\repos\\UDPBeta\\app\\UDPServer\\UDPServer\\UDPServer.csproj",
+  "projectFilePath": "/Users/vedernikovalex/Documents/Git/C#/udp/UDPBeta/app/UDPServer/UDPServer/UDPServer.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\user\\.nuget\\packages\\microsoft.win32.systemevents\\7.0.0\\microsoft.win32.systemevents.7.0.0.nupkg.sha512",
-    "C:\\Users\\user\\.nuget\\packages\\system.configuration.configurationmanager\\7.0.0\\system.configuration.configurationmanager.7.0.0.nupkg.sha512",
-    "C:\\Users\\user\\.nuget\\packages\\system.drawing.common\\7.0.0\\system.drawing.common.7.0.0.nupkg.sha512",
-    "C:\\Users\\user\\.nuget\\packages\\system.security.cryptography.protecteddata\\7.0.0\\system.security.cryptography.protecteddata.7.0.0.nupkg.sha512",
-    "C:\\Users\\user\\.nuget\\packages\\system.security.permissions\\7.0.0\\system.security.permissions.7.0.0.nupkg.sha512",
-    "C:\\Users\\user\\.nuget\\packages\\system.windows.extensions\\7.0.0\\system.windows.extensions.7.0.0.nupkg.sha512"
+    "/Users/vedernikovalex/.nuget/packages/microsoft.win32.systemevents/7.0.0/microsoft.win32.systemevents.7.0.0.nupkg.sha512",
+    "/Users/vedernikovalex/.nuget/packages/system.configuration.configurationmanager/7.0.0/system.configuration.configurationmanager.7.0.0.nupkg.sha512",
+    "/Users/vedernikovalex/.nuget/packages/system.drawing.common/7.0.0/system.drawing.common.7.0.0.nupkg.sha512",
+    "/Users/vedernikovalex/.nuget/packages/system.security.cryptography.protecteddata/7.0.0/system.security.cryptography.protecteddata.7.0.0.nupkg.sha512",
+    "/Users/vedernikovalex/.nuget/packages/system.security.permissions/7.0.0/system.security.permissions.7.0.0.nupkg.sha512",
+    "/Users/vedernikovalex/.nuget/packages/system.windows.extensions/7.0.0/system.windows.extensions.7.0.0.nupkg.sha512"
   ],
   "logs": []
 }

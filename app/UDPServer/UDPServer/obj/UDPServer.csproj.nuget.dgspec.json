@@ -1,27 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Git\\C#\\repos\\UDPBeta\\app\\UDPServer\\UDPServer\\UDPServer.csproj": {}
+    "/Users/vedernikovalex/Documents/Git/C#/udp/UDPBeta/app/UDPServer/UDPServer/UDPServer.csproj": {}
   },
   "projects": {
-    "D:\\Git\\C#\\repos\\UDPBeta\\app\\UDPServer\\UDPServer\\UDPServer.csproj": {
+    "/Users/vedernikovalex/Documents/Git/C#/udp/UDPBeta/app/UDPServer/UDPServer/UDPServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Git\\C#\\repos\\UDPBeta\\app\\UDPServer\\UDPServer\\UDPServer.csproj",
+        "projectUniqueName": "/Users/vedernikovalex/Documents/Git/C#/udp/UDPBeta/app/UDPServer/UDPServer/UDPServer.csproj",
         "projectName": "UDPServer",
-        "projectPath": "D:\\Git\\C#\\repos\\UDPBeta\\app\\UDPServer\\UDPServer\\UDPServer.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "D:\\Git\\C#\\repos\\UDPBeta\\app\\UDPServer\\UDPServer\\obj\\",
+        "projectPath": "/Users/vedernikovalex/Documents/Git/C#/udp/UDPBeta/app/UDPServer/UDPServer/UDPServer.csproj",
+        "packagesPath": "/Users/vedernikovalex/.nuget/packages/",
+        "outputPath": "/Users/vedernikovalex/Documents/Git/C#/udp/UDPBeta/app/UDPServer/UDPServer/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/vedernikovalex/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -51,7 +50,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -60,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
         }
       }
     }

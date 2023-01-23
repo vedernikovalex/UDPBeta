@@ -123,7 +123,7 @@ namespace UDPClient
             try
             {
                 senderClient.Connect(endPoint);
-                senderClient.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.DontLinger, true);
+                //senderClient.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.DontLinger, true);
                 connected = true;
                 RedundantMethods.UserAlert("Successfully connected", "You are able to participate in chatting now");
                 StartInput();
