@@ -39,12 +39,12 @@ namespace UDPServer
             ConfigureConnection();
             Receiver();
         }
-        
+
         /// <summary>
         /// Function for configuring servers UdpClient sender and receiver
         /// Can be configured by config file or manualy by user input
         /// </summary>
-        public void ConfigureConnection()
+        private void ConfigureConnection()
         {
             Console.WriteLine("!! Configurate your connection !!");
             Console.WriteLine("!! Get PORT of server from configuration file or assign it manualy? !!");
@@ -107,7 +107,7 @@ namespace UDPServer
         /// Receiver method for listening for all incoming data using SlidingWindow class method 
         /// Creates user if not exists already and broadcasts received message to all users
         /// </summary>
-        public void Receiver()
+        private void Receiver()
         {
             string message = String.Empty;
             IPEndPoint sender = null;
@@ -142,7 +142,7 @@ namespace UDPServer
         }
 
 
-        public (string, IPEndPoint) Receive()
+        private (string, IPEndPoint) Receive()
         {
             string message = String.Empty;
             IPEndPoint sender = null;
@@ -161,7 +161,7 @@ namespace UDPServer
         /// </summary>
         /// <param name="user"> Sender </param>
         /// <param name="message"> Message to send</param>
-        public void SendAll(User user, string message)
+        private void SendAll(User user, string message)
         {
             Console.WriteLine(user.ClientDestination + " >> " + message);
         }
@@ -206,7 +206,7 @@ namespace UDPServer
 
         }
 
-        public static async void WindowMove()
+        private static async void WindowMove()
         {
 
         }

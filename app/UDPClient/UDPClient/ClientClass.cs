@@ -15,8 +15,8 @@ namespace UDPClient
     /// </summary>
     public class ClientClass
     {
-        public string input, ip;
-        public int port, portClient;
+        private string input, ip;
+        private int port, portClient;
 
         private bool connected = false;
 
@@ -44,7 +44,7 @@ namespace UDPClient
         /// <summary>
         /// Configures parameters for server connection by config file or manual user input
         /// </summary>
-        public void ConfigureConnection(UserInput userInput, ServerConfig configurationInput)
+        private void ConfigureConnection(UserInput userInput, ServerConfig configurationInput)
         {
             RedundantMethods.UserAlert("CONFIGURATION", "Configurate your connection", "Get IP Address/PORT of server from configuration file or assign it manualy");
             input = String.Empty;
@@ -169,7 +169,7 @@ namespace UDPClient
         /// <summary>
         /// listening for incoming data using thread 
         /// </summary>
-        public void StartReceive()
+        private void StartReceive()
         {
             //Thread receiverWindow = new Thread(() => ReceiveNew());
             //receiverWindow.Start();
@@ -178,7 +178,7 @@ namespace UDPClient
         /// <summary>
         /// allowing to type in message for sending to server
         /// </summary>
-        public void StartInput()
+        private void StartInput()
         {
             Thread writerWindow = new Thread(() => Message(new UserInput()));
             writerWindow.Start();
@@ -187,7 +187,7 @@ namespace UDPClient
         /// <summary>
         /// Using SlidingWindow WindowSender method in a thread to send a message via Sliding Window Protocol 
         /// </summary>
-        public void Message(UserInput userInput)
+        private void Message(UserInput userInput)
         {
             while (connected)
             {
