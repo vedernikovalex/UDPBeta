@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "5787ee3d-016a-44f8-b219-c3868d55f429": {
+      "ProjectGuid": "5787ee3d-016a-44f8-b219-c3868d55f429",
+      "DisplayName": "SlidingWindow",
+      "ColorIndex": 0
+    },
+    "32f12d20-49ed-4fa0-8a7d-97165ad0f0e5": {
+      "ProjectGuid": "32f12d20-49ed-4fa0-8a7d-97165ad0f0e5",
+      "DisplayName": "UDPClient",
+      "ColorIndex": 1
+    },
+    "156abc2b-249c-40ac-a3d3-1b7939d008ce": {
+      "ProjectGuid": "156abc2b-249c-40ac-a3d3-1b7939d008ce",
+      "DisplayName": "UDPServer",
+      "ColorIndex": 2
+    },
+    "bc60687f-5b4b-436d-96b0-a112547f9aab": {
+      "ProjectGuid": "bc60687f-5b4b-436d-96b0-a112547f9aab",
+      "DisplayName": "UDPTests",
+      "ColorIndex": 3
+    }
+  },
+  "NextColorIndex": 4
+}

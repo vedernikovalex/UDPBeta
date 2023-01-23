@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "9F+IoC2JxmNrf5ureXpJgstBZ8Rf4ohR4UicGgEpIsniFcFAFV+dtQly2R4/GR4qG5yvcmdoN+fOl/AUD12lfw==",
+  "success": true,
+  "projectFilePath": "D:\\Git\\C#\\repos\\UDPBeta\\app\\SlidingWindow\\SlidingWindow\\SlidingWindow.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.win32.systemevents\\7.0.0\\microsoft.win32.systemevents.7.0.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\system.configuration.configurationmanager\\7.0.0\\system.configuration.configurationmanager.7.0.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\system.drawing.common\\7.0.0\\system.drawing.common.7.0.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\system.security.cryptography.protecteddata\\7.0.0\\system.security.cryptography.protecteddata.7.0.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\system.security.permissions\\7.0.0\\system.security.permissions.7.0.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\system.windows.extensions\\7.0.0\\system.windows.extensions.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

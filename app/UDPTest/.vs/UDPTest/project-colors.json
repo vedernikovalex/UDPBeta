@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "500a6ff9-caed-466f-81eb-e6211f8f2f15": {
+      "ProjectGuid": "500a6ff9-caed-466f-81eb-e6211f8f2f15",
+      "DisplayName": "UDPTest",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
