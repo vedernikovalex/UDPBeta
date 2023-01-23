@@ -32,7 +32,7 @@ namespace UDPClient
         /// </summary>
         public ClientClass()
         {
-            ConfigureConnection();
+            ConfigureConnection(new UserInput(),new ServerConfig());
             Connect();
         }
 
@@ -44,7 +44,7 @@ namespace UDPClient
         /// <summary>
         /// Configures parameters for server connection by config file or manual user input
         /// </summary>
-        public void ConfigureConnection()
+        public void ConfigureConnection(UserInput userInput, ServerConfig configurationInput)
         {
             RedundantMethods.UserAlert("CONFIGURATION", "Configurate your connection", "Get IP Address/PORT of server from configuration file or assign it manualy");
             input = String.Empty;
@@ -111,7 +111,7 @@ namespace UDPClient
             else
             {
                 RedundantMethods.UserAlert("Configuration wasn't successful");
-                ConfigureConnection();
+                ConfigureConnection(userInput, configurationInput);
             }
         }
 
@@ -180,14 +180,14 @@ namespace UDPClient
         /// </summary>
         public void StartInput()
         {
-            Thread writerWindow = new Thread(() => Message());
+            Thread writerWindow = new Thread(() => Message(new UserInput()));
             writerWindow.Start();
         }
 
         /// <summary>
         /// Using SlidingWindow WindowSender method in a thread to send a message via Sliding Window Protocol 
         /// </summary>
-        public void Message()
+        public void Message(UserInput userInput)
         {
             while (connected)
             {
